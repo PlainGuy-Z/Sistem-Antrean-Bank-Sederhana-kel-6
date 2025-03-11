@@ -88,3 +88,26 @@ void enqueue(Queue* newQ, int nomor, char* name, char* layanann, int Silent) {
     printf("\nNasabah %s berhasil ditambahkan ke antrean dengan layanan %s\n", name, layanann);
     }
 }
+
+// Menghapus, memproses, atau memindahkan antrean ke riwayat
+void dequeue(Queue* newQ, Stack* newS) {
+    if (isEmptyQueue(newQ)) {
+        printf("Tidak ada antrean untuk diproses!\n");
+        return;
+    }
+
+    Node* temp = newQ->front; // Isi nilai dari front ke variabel sementer(temp)
+    printf("\nMemproses nasabah: %s - %s!\n", temp->nama, temp->layanan);
+
+    // Push data yang diproses ke riwayat
+    push(newS,  temp->noAntrean, temp->nama, temp->layanan);
+
+    // pindahkan data front ke antrean dibelakangnya
+    newQ->front = newQ->front->next;
+    if (newQ->front == NULL) {
+        newQ->rear = NULL;  
+    }
+    free(temp); // free kan
+    printf("Layanan selesai diproses dan dipindahkan ke riwayat..\n");
+}
+
