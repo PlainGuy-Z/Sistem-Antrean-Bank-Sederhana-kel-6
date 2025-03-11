@@ -23,3 +23,20 @@ Node* createNodeQueue(int nomor, char* name, char* layanann){
 
     return newNode; 
 }
+
+// Alokasi memori dan inisialisasi Queue dengan nillai NULL
+Queue* createQueue(){
+    Queue* newQ = (Queue*) malloc(sizeof(Queue)); // Buat data Queue
+    if (newQ == NULL){
+        printf("GAGAL MENGALOKASIKAN MEMORI!\n");
+        exit(EXIT_FAILURE);
+    }
+    newQ->front = newQ->rear = NULL; // Buat Queue kosong
+    return newQ;
+}
+
+// Fungsi tambahan untuk cek apakah queue kosong
+bool isEmptyQueue(Queue* newQ){
+    return (newQ->front == NULL); // Periksa jika queue kosong kemballikan true
+}
+
