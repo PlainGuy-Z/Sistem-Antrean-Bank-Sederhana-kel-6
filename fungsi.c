@@ -40,3 +40,37 @@ bool isEmptyQueue(Queue* newQ){
     return (newQ->front == NULL); // Periksa jika queue kosong kemballikan true
 }
 
+// Fungsi untuk pilih layanan
+void pilihLayanan(char* layanan) {
+    int pilihan;
+
+    do {    
+        printf("\nPilih jenis layanan:\n");
+        printf("  1. Setor Tunai\n");
+        printf("  2. Tarik Tunai\n");
+        printf("  3. Pembukaan Rekening\n");
+        printf("Pilihan (1-3): ");
+        if (scanf("%d", &pilihan) != 1){                       // Scanf menggunakan perulanagn if  agar input hanya berupa angkaa
+            while(getchar() != '\n');                          // bersihkan input dari jika input selain angka
+            printf("Input tidak valid! Hanya pilih opsi 1-3"); 
+            continue;                                          // ulangi 
+        }
+        getchar();  // BERSIHKAN  newline dari BUFFER
+        
+        switch (pilihan) {
+            case 1:
+            strcpy(layanan, "Setor Tunai");
+            break;
+            case 2:
+            strcpy(layanan, "Tarik Tunai");
+            break;
+            case 3:
+            strcpy(layanan, "Pembukaan Rekening");
+            break;
+            default:
+            printf("Input tidak valid! Hanya pilih opsi 1-3\n");
+            break;
+        } 
+    } while (pilihan < 1 || pilihan >3); // Perulangan while terjadi jika input selain rentang 1-3
+}
+
