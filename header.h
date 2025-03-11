@@ -60,3 +60,4 @@ int tambahantrean(Queue* antrean, int* nomorAntrean);
 void printMenu();
 
 #endif
+
