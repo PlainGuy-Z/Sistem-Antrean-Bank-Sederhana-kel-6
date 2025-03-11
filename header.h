@@ -14,3 +14,21 @@ typedef struct Node{
     char layanan[50];
     struct Node* next;
 }Node;
+
+// Struktur Queue
+typedef struct queue{
+    Node* front;
+    Node* rear;
+}Queue;
+
+
+typedef struct nodeStack{
+    int noAntrean;
+    char nama[50];
+    char layanan[50];
+    struct nodeStack* next;
+}nodeStack; 
+
+typedef struct stack{
+    nodeStack* top;
+}Stack;
