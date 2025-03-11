@@ -74,3 +74,17 @@ void pilihLayanan(char* layanan) {
     } while (pilihan < 1 || pilihan >3); // Perulangan while terjadi jika input selain rentang 1-3
 }
 
+// Menambahkan dan menyimpan antrian
+void enqueue(Queue* newQ, int nomor, char* name, char* layanann, int Silent) { 
+    Node* newNode2 = createNodeQueue(nomor, name, layanann); 
+    if (isEmptyQueue(newQ)){
+        newQ->front = newQ->rear = newNode2;
+    }
+    else{
+        newQ->rear->next = newNode2;
+        newQ->rear = newNode2;
+    }
+    if(!Silent){ // Silent  mode agar saat di pop menggunakan fungsi undo pesan tidak lagi print 
+    printf("\nNasabah %s berhasil ditambahkan ke antrean dengan layanan %s\n", name, layanann);
+    }
+}
