@@ -111,3 +111,29 @@ void dequeue(Queue* newQ, Stack* newS) {
     printf("Layanan selesai diproses dan dipindahkan ke riwayat..\n");
 }
 
+void displayQueue(Queue* newQ) {
+    
+    printf("\n+====================== Daftar Antrean =======================+\n");
+    printf("| %-5s | %-30s | %-18s |\n", "No.", "Nama Nasabah", "Layanan");
+    printf("+-------+--------------------------------+--------------------+\n");
+    
+    
+    if (isEmptyQueue(newQ)) {
+        printf("| %-5s | %-30s | %-18s |\n", "-", "-", "-");
+        printf("+-------+--------------------------------+--------------------+\n");
+        printf("Total nasabah dalam antrean 0\n");
+        return;
+    } 
+
+        int total = 0;
+        Node* temp = newQ->front; // Simpan nilai terdepan di variabel sementara temp
+        while (temp != NULL) {
+        printf("| %-5d | %-30.30s | %-18.18s |\n", temp->noAntrean, temp->nama, temp->layanan); // isi data dalam tabel
+        temp = temp->next;
+        total++; // Hitung total antrean
+
+        }
+    printf("+-------+--------------------------------+--------------------+\n");
+    printf("Total nasabah dalam antrean: %d\n", total);
+}
+
