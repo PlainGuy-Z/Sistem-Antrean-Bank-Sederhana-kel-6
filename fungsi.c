@@ -112,7 +112,6 @@ void dequeue(Queue* newQ, Stack* newS) {
 }
 
 void displayQueue(Queue* newQ) {
-    
     printf("\n+====================== Daftar Antrean =======================+\n");
     printf("| %-5s | %-30s | %-18s |\n", "No.", "Nama Nasabah", "Layanan");
     printf("+-------+--------------------------------+--------------------+\n");
@@ -161,15 +160,15 @@ int isValidName(char name[]) {
 
 // Fumgsi tammbahan untuk vallidasi input   
 void trimLeadingSpaces(char *str) {
-
     // Periksa apakah string NULL atau kosong, jika iya langsung keluar dari fungsi
     if (str == NULL || *str == '\0') return;
-
+    
     // menghitung jumlah spasi di awal string
     int count = 0;
     while (str[count] == ' ') {
         count++;
     }
+    
     // Jika ada spasi di awal string, geser string ke kiri untuk menghapus spasi
     if (count > 0) {
         memmove(str, str + count, strlen(str) - count + 1); 
