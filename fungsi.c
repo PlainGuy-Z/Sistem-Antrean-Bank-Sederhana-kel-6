@@ -273,3 +273,20 @@ void push(Stack *newS,  int nomor, char* name, char* layanann){
     St->next = newS->top;
     newS->top = St;
 }
+
+void undo(Stack* newS, Queue* newQ) {
+    if (isEmptyStack(newS)){
+        printf("Tidak ada transaksi untuk dibatalakan!\n");
+        return;
+    }
+
+    nodeStack* temp = newS->top;
+    newS->top = temp->next;
+
+    printf("Transaksi terakhir: %s - %s\n", temp->nama, temp->layanan);
+    printf("Transaksi dibatalkan. Nasabah dikembalikan ke antrean");
+
+    // Mengembalikan data dari stack(riwayat layanan) ke antrean
+    enqueue(newQ, temp->noAntrean, temp->nama, temp->layanan, 1); // '1' membaca parameter silent di fungsi enqueue
+    free(temp); // kita free kan
+}
