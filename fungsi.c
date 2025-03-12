@@ -239,3 +239,14 @@ int tambahantrean(Queue* antrean, int* nomorAntrean) {
     return 0;
 }
 
+//============================++++ Fungsi untuk stack ++++====================================
+Stack* createStack() {
+    Stack* newS = (Stack*) malloc(sizeof(Stack)); // buat Stack kosong, alokasi memori
+    if (newS == NULL) {
+        printf("Gagal mengalokasikan memori!\n");
+        exit(1);
+    }
+    newS->top = NULL; // Inisialisasi stack kosong
+    return newS;
+}
+
