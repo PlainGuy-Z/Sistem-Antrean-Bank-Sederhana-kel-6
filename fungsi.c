@@ -315,6 +315,18 @@ void displayStack(Stack* newS) {
     printf("Total Transaksi: %d\n", totalStack);
 }
 
+// membebaskan seluruh memori yang digunakan
+void freeStack(Stack* newS){
+    nodeStack* temp;
+    while(!isEmptyStack(newS)){
+        temp = newS->top;
+        newS->top = newS->top->next;
+        free(temp);
+    }
+    free(newS);
+}
+
+
 void printMenu() {
     printf("\n+---------------------------------------+\n");
     printf("|        SISTEM ANTREAN BANK            |\n");
