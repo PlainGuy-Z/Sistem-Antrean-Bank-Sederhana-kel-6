@@ -137,3 +137,15 @@ void displayQueue(Queue* newQ) {
     printf("Total nasabah dalam antrean: %d\n", total);
 }
 
+// Fungsi membebaskan memori queue
+void freeQueue(Queue* newQ) {
+    if (newQ == NULL) 
+    return;  
+
+    while (!isEmptyQueue(newQ)) {
+        Node* temp = newQ->front;
+        newQ->front = newQ->front->next;
+        free(temp);  
+    }
+    free(newQ);  
+}
