@@ -316,3 +316,17 @@ void displayStack(Stack* newS) {
     printf("+-------+--------------------------------+--------------------+\n");
     printf("Total Transaksi: %d\n", totalStack);
 }
+
+void printMenu() {
+    printf("\n+---------------------------------------+\n");
+    printf("|        SISTEM ANTREAN BANK            |\n");
+    printf("+---------------------------------------+\n");
+    printf("| 1. Tambah Nasabah ke Antrean          |\n");
+    printf("| 2. Proses Nasabah                     |\n");
+    printf("| 3. Tampilkan Antrean Saat Ini         |\n");
+    printf("| 4. Tampilkan Riwayat Layanan          |\n");
+    printf("| 5. Batalkan Transaksi Terakhir (Undo) |\n");
+    printf("| 6. Keluar                             |\n");
+    printf("+---------------------------------------+\n");
+    printf("Pilihan: ");
+}
