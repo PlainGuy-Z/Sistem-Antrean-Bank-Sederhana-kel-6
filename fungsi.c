@@ -179,3 +179,13 @@ void trimLeadingSpaces(char *str) {
     }
 }
 
+// Fumgsi tammbahan untuk vallidasi input   
+int isStringEmptyOrWhitespace(const char *str) {
+    while (*str) {
+        if (!isspace((unsigned char)*str)) {
+            return 0; // Kembalikan 0 jika string mengandung karakter lain selain whitespace
+        }
+        str++;
+    }
+    return 1; // Jika hanya ditemukan whitespace atau string kosong, kembalikan 1
+}
