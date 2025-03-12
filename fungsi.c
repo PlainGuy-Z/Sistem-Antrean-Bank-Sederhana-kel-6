@@ -189,3 +189,53 @@ int isStringEmptyOrWhitespace(const char *str) {
     }
     return 1; // Jika hanya ditemukan whitespace atau string kosong, kembalikan 1
 }
+
+int tambahantrean(Queue* antrean, int* nomorAntrean) {
+    char nama[50];
+    char layanan[50]; 
+
+    while (1) {
+        printf("\nMasukkan Nama Nasabah (atau '0' untuk keluar): ");
+        
+        if (fgets(nama, sizeof(nama), stdin) == NULL) {
+            printf("\nError membaca input.\n");
+            break;
+        }
+
+        // Hapus newline dari input
+        nama[strcspn(nama, "\n")] = 0;
+
+        // kalau karakter dalam variabel nama bernilai 0 maka kembalikan 0
+        if (strcmp(nama, "0") == 0) break;
+
+        // cek panjang string
+        if  (strlen(nama)>= sizeof(nama)-1){
+            printf("Nama terlalu panjang! Masukkan maks %d karakter", sizeof(nama)-1);
+            continue;
+        }
+
+        // Hapus spasi di awal (jika ada)
+        trimLeadingSpaces(nama);
+
+        // Periksa apakah input kosong( jika hanya klik enter) atau hanya berisi spasi 
+        if (isStringEmptyOrWhitespace(nama)) {
+            printf("\nInput tidak boleh kosong!\n");
+            continue;  
+        }
+        
+        // jika berisi angka atau simbol. Tidak valid
+        if (!isValidName(nama)) {
+            printf("\nInput tidak valid. Tidak boleh mengandung angka atau simboll!\n");
+            continue;
+        }
+
+        //  Masukkan ke pilih layanan
+        pilihLayanan(layanan);
+
+        // Masukkan ke antrean
+        enqueue(antrean, (*nomorAntrean)++, nama, layanan, 0);
+        break;
+    }
+    return 0;
+}
+
