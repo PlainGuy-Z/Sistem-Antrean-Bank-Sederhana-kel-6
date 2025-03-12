@@ -159,3 +159,23 @@ int isValidName(char name[]) {
     }
     return 1; 
 }
+
+// Fumgsi tammbahan untuk vallidasi input   
+void trimLeadingSpaces(char *str) {
+
+    // Periksa apakah string NULL atau kosong, jika iya langsung keluar dari fungsi
+    if (str == NULL || *str == '\0') return;
+
+    // menghitung jumlah spasi di awal string
+    int count = 0;
+    while (str[count] == ' ') {
+        count++;
+    }
+    // Jika ada spasi di awal string, geser string ke kiri untuk menghapus spasi
+    if (count > 0) {
+        memmove(str, str + count, strlen(str) - count + 1); 
+        // memmove() digunakan untuk menyalin string mulai dari karakter pertama non-spasi
+        // strlen(str) - count + 1 memastikan '\0' tetap ada di akhir string
+    }
+}
+
