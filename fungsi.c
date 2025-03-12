@@ -315,6 +315,7 @@ void displayStack(Stack* newS) {
     printf("Total Transaksi: %d\n", totalStack);
 }
 
+
 // membebaskan seluruh memori yang digunakan
 void freeStack(Stack* newS){
     nodeStack* temp;
@@ -325,6 +326,7 @@ void freeStack(Stack* newS){
     }
     free(newS);
 }
+
 
 void printMenu() {
     printf("\n+---------------------------------------+\n");
