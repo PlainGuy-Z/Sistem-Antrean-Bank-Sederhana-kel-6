@@ -290,3 +290,29 @@ void undo(Stack* newS, Queue* newQ) {
     enqueue(newQ, temp->noAntrean, temp->nama, temp->layanan, 1); // '1' membaca parameter silent di fungsi enqueue
     free(temp); // kita free kan
 }
+
+void displayStack(Stack* newS) {
+
+    printf("\n+====================== Daftar Riwayat =======================+\n");
+    printf("| %-5s | %-30s | %-18s |\n", "No.", "Nama Nasabah", "Layanan");
+    printf("+-------+--------------------------------+--------------------+\n");
+    // Kalo kosong print - di setiap kolom
+    if (isEmptyStack(newS)) {
+        printf("| %-5s | %-30s | %-18s |\n", "-", "-", "-");
+        printf("+-------+--------------------------------+--------------------+\n");
+        printf("Belum ada transaksi yang di proses.\n");
+        return; 
+    } 
+    
+    // kalo ada isi, masukkan setiap data dalam kolom masing masing
+    int totalStack = 0;
+    nodeStack* temp2 = newS->top;
+    while (temp2 != NULL) {
+        printf("| %-5d | %-30.30s | %-18.18s |\n", temp2->noAntrean, temp2->nama, temp2->layanan);
+        temp2 = temp2->next;
+        totalStack++;
+    }
+
+    printf("+-------+--------------------------------+--------------------+\n");
+    printf("Total Transaksi: %d\n", totalStack);
+}
