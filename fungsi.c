@@ -326,7 +326,6 @@ void freeStack(Stack* newS){
     free(newS);
 }
 
-
 void printMenu() {
     printf("\n+---------------------------------------+\n");
     printf("|        SISTEM ANTREAN BANK            |\n");
