@@ -253,3 +253,23 @@ Stack* createStack() {
 bool isEmptyStack(Stack* newS) {
     return (newS->top == NULL);
 }
+
+void push(Stack *newS,  int nomor, char* name, char* layanann){
+    nodeStack* St = (nodeStack*) malloc(sizeof(nodeStack)); // Alokasi memori untuk node baru
+    if (St == NULL){
+        printf("Gagal mengalokasikan memori!\n");
+        exit(1);
+    }
+
+    St->noAntrean = nomor;
+
+    strncpy(St->nama, name, sizeof(St->nama)-1); // Memastikan string berakhir dengan null terminator
+    St->nama[sizeof(St->nama)-1] = '\0';
+
+    strncpy(St->layanan, layanann, sizeof(St->layanan)-1);
+    St->layanan[sizeof(St->layanan)-1] = '\0';
+
+    // Tambahin node baru ke dalam stack
+    St->next = newS->top;
+    newS->top = St;
+}
