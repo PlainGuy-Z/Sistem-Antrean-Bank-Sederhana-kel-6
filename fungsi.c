@@ -117,7 +117,6 @@ void displayQueue(Queue* newQ) {
     printf("| %-5s | %-30s | %-18s |\n", "No.", "Nama Nasabah", "Layanan");
     printf("+-------+--------------------------------+--------------------+\n");
     
-    
     if (isEmptyQueue(newQ)) {
         printf("| %-5s | %-30s | %-18s |\n", "-", "-", "-");
         printf("+-------+--------------------------------+--------------------+\n");
@@ -131,8 +130,8 @@ void displayQueue(Queue* newQ) {
         printf("| %-5d | %-30.30s | %-18.18s |\n", temp->noAntrean, temp->nama, temp->layanan); // isi data dalam tabel
         temp = temp->next;
         total++; // Hitung total antrean
-
-        }
+     }
+    
     printf("+-------+--------------------------------+--------------------+\n");
     printf("Total nasabah dalam antrean: %d\n", total);
 }
