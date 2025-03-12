@@ -149,3 +149,13 @@ void freeQueue(Queue* newQ) {
     }
     free(newQ);  
 }
+
+// Fungsi tidak memvalidkan angka dan simbol
+int isValidName(char name[]) {
+    for (int i = 0; i < strlen(name); i++) {
+        if (!isalpha(name[i]) && name[i] != ' ') { // Hanya huruf dan spasi yang diperbolehkan
+            return 0; 
+        }
+    }
+    return 1; 
+}
