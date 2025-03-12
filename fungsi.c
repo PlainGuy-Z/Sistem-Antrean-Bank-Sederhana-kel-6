@@ -250,3 +250,6 @@ Stack* createStack() {
     return newS;
 }
 
+bool isEmptyStack(Stack* newS) {
+    return (newS->top == NULL);
+}
